@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Tab</title>
+  <link rel="icon" id="favicon" href="assets/home_dark.svg">
+  <link rel="stylesheet" href="newtab.css">
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="top-bar">
+    <div class="brand">
+      <img id="icon-home" class="icon" src="assets/home_dark.svg" alt="home">
+      <span id="clock-display">00:00</span>
+    </div>
+    <button id="settings-btn" class="icon-btn ripple" title="Settings">
+      <img id="icon-settings" class="icon" src="assets/settings_dark.svg" alt="settings">
+    </button>
+  </header>
+
+  <main class="main-content">
+    <!-- Home View -->
+    <div id="home-view" class="view active">
+      <div class="logo-container">
+        <h1 class="google-logo">Google</h1>
+      </div>
+
+      <form id="search-form" class="search-bar ripple">
+        <img id="icon-search" class="icon search-icon" src="assets/search_dark.svg" alt="search">
+        <input type="text" id="search-input" placeholder="Search Google or type a URL" autocomplete="off" autofocus>
+      </form>
+
+      <div class="shortcuts-grid" id="shortcuts-container">
+        <a href="https://www.youtube.com" class="shortcut-item ripple">
+          <div class="shortcut-icon">Y</div>
+          <span>YouTube</span>
+        </a>
+        <a href="https://github.com" class="shortcut-item ripple">
+          <div class="shortcut-icon">G</div>
+          <span>GitHub</span>
+        </a>
+        <a href="https://mail.google.com" class="shortcut-item ripple">
+          <div class="shortcut-icon">M</div>
+          <span>Gmail</span>
+        </a>
+        <a href="https://chatgpt.com" class="shortcut-item ripple">
+          <div class="shortcut-icon">C</div>
+          <span>ChatGPT</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Settings View -->
+    <div id="settings-view" class="view">
+      <div class="settings-header">
+        <button id="back-btn" class="icon-btn ripple" title="Back">
+          <img id="icon-arrow" class="icon" src="assets/arrow_dark.svg" alt="back">
+        </button>
+        <h2>Settings & Customization</h2>
+      </div>
+
+      <div class="settings-container">
+        <!-- Setting 1: Dark Mode -->
+        <div class="card m3-card setting-item">
+          <div class="setting-text">
+            <h3>Dark Mode</h3>
+            <p>Switch between Light and Dark themes</p>
+          </div>
+          <button id="theme-toggle" class="m3-btn tonal ripple">Toggle Theme</button>
+        </div>
+
+        <!-- Setting 2: Theme Color Palette -->
+        <div class="card m3-card">
+          <div class="setting-text" style="margin-bottom: 12px;">
+            <h3>Material You Color Palette</h3>
+            <p>Choose your primary accent color</p>
+          </div>
+          <div class="color-palette">
+            <div class="color-dot" style="background: #6750A4;" data-color="#6750A4"></div>
+            <div class="color-dot" style="background: #0061A4;" data-color="#0061A4"></div>
+            <div class="color-dot" style="background: #006A60;" data-color="#006A60"></div>
+            <div class="color-dot" style="background: #386A20;" data-color="#386A20"></div>
+            <div class="color-dot" style="background: #8C5000;" data-color="#8C5000"></div>
+            <div class="color-dot" style="background: #9C4146;" data-color="#9C4146"></div>
+            <div class="color-dot" style="background: #7A5700;" data-color="#7A5700"></div>
+            <div class="color-dot" style="background: #635B70;" data-color="#635B70"></div>
+            <div class="color-dot" style="background: #984061;" data-color="#984061"></div>
+            <div class="color-dot" style="background: #006874;" data-color="#006874"></div>
+          </div>
+        </div>
+
+        <!-- Setting 3: Search Engine -->
+        <div class="card m3-card setting-item">
+          <div class="setting-text">
+            <h3>Default Search Engine</h3>
+            <p>Select your preferred search provider</p>
+          </div>
+          <select id="search-engine-select" class="m3-select">
+            <option value="https://www.google.com/search?q=">Google</option>
+            <option value="https://duckduckgo.com/?q=">DuckDuckGo</option>
+            <option value="https://www.bing.com/search?q=">Bing</option>
+            <option value="https://search.brave.com/search?q=">Brave Search</option>
+          </select>
+        </div>
+
+        <!-- Setting 4: Clock Format -->
+        <div class="card m3-card setting-item">
+          <div class="setting-text">
+            <h3>24-Hour Clock</h3>
+            <p>Toggle 24h format in top bar</p>
+          </div>
+          <input type="checkbox" id="clock-format-toggle" class="m3-checkbox">
+        </div>
+
+        <!-- Setting 5: Show Clock -->
+        <div class="card m3-card setting-item">
+          <div class="setting-text">
+            <h3>Show Live Clock</h3>
+            <p>Display current time in top bar</p>
+          </div>
+          <input type="checkbox" id="show-clock-toggle" class="m3-checkbox" checked>
+        </div>
+
+        <!-- Setting 6: Show Google Logo -->
+        <div class="card m3-card setting-item">
+          <div class="setting-text">
+            <h3>Show Google Logo</h3>
+            <p>Toggle main Google branding text</p>
+          </div>
+          <input type="checkbox" id="show-logo-toggle" class="m3-checkbox" checked>
+        </div>
+
+        <!-- Setting 7: Glassmorphism Effect -->
+        <div class="card m3-card setting-item">
+          <div class="setting-text">
+            <h3>Surface Elevation Blur</h3>
+            <p>Enhance shadow and container contrast</p>
+          </div>
+          <input type="checkbox" id="elevation-toggle" class="m3-checkbox">
+        </div>
+
+        <!-- Setting 8: Quick Launch Bar -->
+        <div class="card m3-card setting-item">
+          <div class="setting-text">
+            <h3>Show Shortcuts Bar</h3>
+            <p>Display quick links below search bar</p>
+          </div>
+          <input type="checkbox" id="shortcuts-toggle" class="m3-checkbox" checked>
+        </div>
+
+        <!-- Setting 9: Smooth Animations -->
+        <div class="card m3-card setting-item">
+          <div class="setting-text">
+            <h3>M3E Smooth Animations</h3>
+            <p>Enable fluid view transitions and ripples</p>
+          </div>
+          <input type="checkbox" id="animations-toggle" class="m3-checkbox" checked>
+        </div>
+
+        <!-- Setting 10: Reset Data -->
+        <div class="card m3-card setting-item">
+          <div class="setting-text">
+            <h3>Reset Preferences</h3>
+            <p>Restore all settings to default</p>
+          </div>
+          <button id="reset-btn" class="m3-btn tonal ripple" style="color: #BA1A1A; background-color: #FFDAD6;">Reset</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="newtab.js"></script>
+</body>
+</html>

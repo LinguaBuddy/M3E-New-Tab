@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Material 3 Expressive New Tab Pro",
+  "version": "2.0",
+  "description": "Advanced custom Chrome New Tab page with M3E design, color palettes, and settings.",
+  "permissions": ["storage"],
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  }
+}

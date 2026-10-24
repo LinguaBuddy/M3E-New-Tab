@@ -1,0 +1,325 @@
+
+:root {
+  --md-sys-color-surface: #FEF7FF;
+  --md-sys-color-surface-container: #F3EDF7;
+  --md-sys-color-on-surface: #1D1B20;
+  --md-sys-color-primary: #6750A4;
+  --md-sys-color-on-primary: #FFFFFF;
+  --md-sys-color-primary-container: #EADDFF;
+  --md-sys-color-outline: #79747E;
+  --md-sys-color-ripple: rgba(103, 80, 164, 0.15);
+
+  --m3-easing: cubic-bezier(0.2, 0, 0, 1);
+  --m3-transition-duration: 350ms;
+}
+
+body.dark-theme {
+  --md-sys-color-surface: #141218;
+  --md-sys-color-surface-container: #211F26;
+  --md-sys-color-on-surface: #E6E1E5;
+  --md-sys-color-primary-container: #4F378B;
+  --md-sys-color-outline: #938F99;
+  --md-sys-color-ripple: rgba(208, 188, 255, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Google Sans', sans-serif;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: background-color var(--m3-transition-duration) var(--m3-easing),
+              color var(--m3-transition-duration) var(--m3-easing);
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 40px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.icon-btn {
+  background: var(--md-sys-color-surface-container);
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 24px; /* UICorner */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s var(--m3-easing);
+}
+
+.icon-btn:hover {
+  transform: scale(1.05);
+}
+
+.icon-btn:active {
+  transform: scale(0.95);
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* M3E View Transitions */
+.view {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+  width: 100%;
+  max-width: 680px;
+  padding: 0 20px;
+  opacity: 0;
+  transform: translateY(20px) scale(0.96);
+  pointer-events: none;
+  transition: opacity var(--m3-transition-duration) var(--m3-easing),
+              transform var(--m3-transition-duration) var(--m3-easing);
+}
+
+.view.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Settings View Scrollable Container */
+.settings-container {
+  width: 100%;
+  max-height: 65vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-right: 4px;
+}
+
+.settings-container::-webkit-scrollbar {
+  width: 6px;
+}
+.settings-container::-webkit-scrollbar-thumb {
+  background-color: var(--md-sys-color-outline);
+  border-radius: 4px;
+}
+
+/* Google Logo */
+.logo-container h1 {
+  font-size: 5rem;
+  font-weight: 500;
+  letter-spacing: -1px;
+}
+
+/* Search Bar (UICorner) */
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: var(--md-sys-color-surface-container);
+  padding: 16px 24px;
+  border-radius: 32px; /* UICorner */
+  border: 1px solid transparent;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.2s var(--m3-easing), border-color 0.2s var(--m3-easing);
+}
+
+.search-bar:focus-within {
+  border-color: var(--md-sys-color-primary);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.search-bar input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--md-sys-color-on-surface);
+  font-size: 1.05rem;
+}
+
+/* Shortcuts */
+.shortcuts-grid {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+}
+
+.shortcut-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--md-sys-color-on-surface);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 12px;
+  border-radius: 16px; /* UICorner */
+  transition: background-color 0.2s var(--m3-easing);
+}
+
+.shortcut-item:hover {
+  background-color: var(--md-sys-color-surface-container);
+}
+
+.shortcut-icon {
+  width: 48px;
+  height: 48px;
+  background-color: var(--md-sys-color-surface-container);
+  border-radius: 24px; /* UICorner */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--md-sys-color-primary);
+}
+
+/* Settings & Cards */
+.settings-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.m3-card {
+  background-color: var(--md-sys-color-surface-container);
+  border-radius: 24px; /* UICorner */
+  padding: 20px 24px;
+  width: 100%;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.setting-text h3 {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.setting-text p {
+  font-size: 0.8rem;
+  color: var(--md-sys-color-outline);
+}
+
+/* Color Palette Dots */
+.color-palette {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.color-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s var(--m3-easing), box-shadow 0.2s;
+}
+
+.color-dot:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* M3 Select & Checkbox */
+.m3-select {
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  border: 1px solid var(--md-sys-color-outline);
+  padding: 8px 16px;
+  border-radius: 12px;
+  outline: none;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.m3-checkbox {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--md-sys-color-primary);
+  cursor: pointer;
+}
+
+/* M3 Buttons */
+.m3-btn {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px; /* UICorner */
+  font-weight: 500;
+  font-size: 0.85rem;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s var(--m3-easing);
+}
+
+.m3-btn.tonal {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-primary);
+}
+
+.m3-btn:active {
+  transform: scale(0.96);
+}
+
+/* Google Ripple Effect */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background-color: var(--md-sys-color-ripple);
+  transform: scale(0);
+  animation: ripple-anim 0.5s var(--m3-easing);
+  pointer-events: none;
+}
+
+@keyframes ripple-anim {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
